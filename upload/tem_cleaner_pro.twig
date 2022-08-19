@@ -1,0 +1,237 @@
+{{ header }}{{ column_left }}
+<div id="content">
+  <div class="page-header">
+    <div class="container-fluid">
+      <div class="pull-right">
+        <a href="{{ cancel }}" data-toggle="tooltip" title="{{ button_cancel }}" class="btn btn-default"><i class="fa fa-reply"></i></a></div>
+      <h1>{{ heading_title }}</h1>
+      <ul class="breadcrumb">
+        {% for breadcrumb in breadcrumbs %}
+        <li><a href="{{ breadcrumb.href }}">{{ breadcrumb.text }}</a></li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+  <div class="container-fluid">
+    {% if error_warning %}
+    <div class="alert alert-danger alert-dismissible"><i class="fa fa-exclamation-circle"></i> {{ error_warning }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    {% if success %}
+    <div class="alert alert-success"><i class="fa fa-check-circle"></i> {{ success }}
+      <button type="button" class="close" data-dismiss="alert">&times;</button>
+    </div>
+    {% endif %}
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h3 class="panel-title">{{ text_edit }}</h3>
+      </div>
+      <div class="panel-body">
+        <form action="" method="" enctype="multipart/form-data" id="form-module" class="form-horizontal">
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left">Clean Unused Options</td>
+                  <td class="text-right">Totals</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left">Total Options</td>
+                  <td class="text-right">{{ options_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Active Options</td>
+                  <td class="text-right">{{ options_active_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total In Active Options</td>
+                  <td class="text-right">{{ options_in_active_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Unused Options</td>
+                  <td class="text-right"><a href="{{ delete_option }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              </tbody>         
+            </table>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left">Clean Unused Attributes</td>
+                  <td class="text-right">Totals</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left">Total Attributes</td>
+                  <td class="text-right">{{ attributes_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Active Attributes</td>
+                  <td class="text-right">{{ attributes_active_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total In Active Attributes</td>
+                  <td class="text-right">{{ attributes_in_active_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Unused Attributes</td>
+                  <td class="text-right"><a href="{{ delete_attribute }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              </tbody>         
+            </table>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left">Clean Unused Attributes Group</td>
+                  <td class="text-right">Totals</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left">Total Attributes Group</td>
+                  <td class="text-right">{{ attributes_group_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Active Attributes Group</td>
+                  <td class="text-right">{{ active_attributes_group_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total In Active Attributes Group</td>
+                  <td class="text-right">{{ in_active_attributes_group_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Unused Attributes Group</td>
+                  <td class="text-right"><a href="{{ delete_attribute_group }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              </tbody>         
+            </table>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left">Clean Cached Images</td>
+                  <td class="text-right">Totals</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left">Total Images</td>
+                  <td class="text-right">{{ images_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Cached Images</td>
+                  <td class="text-right">{{ images_cache_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Product Images</td>
+                  <td class="text-right">{{ images_product_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Cached Images</td>
+                  <td class="text-right"><a href="{{ delete_cached_image }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              </tbody>         
+            </table>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left">Clean Orders</td>
+                  <td class="text-right">Totals</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left">Total Orders</td>
+                  <td class="text-right">{{ orders_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Junk Orders Without Status</td>
+                  <td class="text-right">{{ orders_junk_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Junk Orders Without Status</td>
+                  <td class="text-right"><a href="{{ delete_junk_orders }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+                <tr>
+                  <td class="text-left">Select Order Status</td>
+                  <td class="text-right">
+                    <select name="order_status_id" id="input-order-status" class="form-control" >
+                      <option value="">---Select Status---</option>
+                      {% for order_statuses in order_statuses %}
+                        <option value="{{ order_statuses.order_status_id }}">{{ order_statuses.name }}</option>
+                      {% endfor %}
+                    </select>
+                  </td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Selected Status Orders</td>
+                  <td class="text-right"><button id="delete-selected-orders" data-loading-text="Cleaning" class="btn btn-danger"><i class="fa fa-trash"></i></button></td>
+                </tr>
+              </tbody>         
+            </table>
+          </div>
+          <div class="table-responsive">
+            <table class="table table-bordered table-hover">
+              <thead>
+                <tr>
+                  <td class="text-left">Clean Products</td>
+                  <td class="text-right">Totals</td>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td class="text-left">Total Products</td>
+                  <td class="text-right">{{ products_total }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total '0' Quantity Products</td>
+                  <td class="text-right">{{ zero_quantity_products }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean '0' Quantity Products</td>
+                  <td class="text-right"><a href="{{ delete_zero_quantity_products }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+                <tr>
+                  <td class="text-left">Total Disabled Products</td>
+                  <td class="text-right">{{ disabled_products }}</td>
+                </tr>
+                <tr>
+                  <td class="text-left">Clean Disabled Products</td>
+                  <td class="text-right"><a href="{{ delete_disabled_products }}" class="btn btn-danger"><i class="fa fa-trash"></i></a></td>
+                </tr>
+              </tbody>         
+            </table>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <script type="text/javascript"><!--
+    $("#delete-selected-orders").click(function(e){
+        e.preventDefault();
+        var selectedValue = $("#input-order-status").val();
+        $.ajax({
+            type: "GET",
+            url: 'index.php?route=extension/module/cleaner_pro/deleteSelectedStatusOrders&user_token={{ user_token }}',
+            data: {id: selectedValue},
+            beforeSend: function() {
+              $('#delete-selected-orders').button('loading');
+            },
+            complete: function() {
+              $('#delete-selected-orders').button('reset');
+            },
+        });
+    });
+  //--></script>
+</div>
+{{ footer }}
